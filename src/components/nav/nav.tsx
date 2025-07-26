@@ -1,6 +1,7 @@
 "use client";
 
 import { UserButton, useStackApp } from "@stackframe/stack";
+import { Settings } from "lucide-react";
 import Link from "next/link";
 
 export function Nav() {
@@ -16,7 +17,18 @@ export function Nav() {
           </Link>
         </div>
         <div className="flex gap-2">
-          <UserButton showUserInfo={true} />
+          <UserButton
+            showUserInfo={true}
+            extraItems={[
+              {
+                text: "Settings",
+                icon: <Settings />,
+                onClick: () => {
+                  console.log("Settings clicked");
+                },
+              },
+            ]}
+          />
         </div>
       </div>
       <div className="divider m-0" />
