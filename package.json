@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "phase run next dev --turbopack",
-    "build": "next build",
+    "build": "next build --turbopack",
     "start": "next start",
     "lint": "next lint",
     "biome:check": "biome check .",
@@ -12,11 +12,13 @@
     "biome:format": "biome format --write .",
     "biome:fix": "biome check --write .",
     "db:generate": "phase run drizzle-kit generate",
-    "db:migrate": "phase run drizzle-kit migrate"
+    "db:migrate": "phase run drizzle-kit migrate",
+    "preview": "phase run next build --turbopack && phase run next start"
   },
   "dependencies": {
     "@libsql/client": "^0.15.10",
-    "@stackframe/stack": "^2.8.25",
+    "@stackframe/stack": "2.8.25",
+    "babel-plugin-react-compiler": "^19.1.0-rc.2",
     "daisyui": "^5.0.47",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.3",
