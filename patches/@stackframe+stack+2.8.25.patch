@@ -1,0 +1,32 @@
+diff --git a/node_modules/@stackframe/stack/dist/esm/lib/stack-app/apps/implementations/client-app-impl.js b/node_modules/@stackframe/stack/dist/esm/lib/stack-app/apps/implementations/client-app-impl.js
+index 06deed7..cc9d1c9 100644
+--- a/node_modules/@stackframe/stack/dist/esm/lib/stack-app/apps/implementations/client-app-impl.js
++++ b/node_modules/@stackframe/stack/dist/esm/lib/stack-app/apps/implementations/client-app-impl.js
+@@ -1008,8 +1008,9 @@ var __StackClientAppImplIncomplete = class __StackClientAppImplIncomplete {
+     } else if (this._redirectMethod === "window") {
+       return (to) => window.location.assign(to);
+     } else if (this._redirectMethod === "nextjs") {
+-      const router = NextNavigation.useRouter();
+-      return (to) => router.push(to);
++      return (to) => window.location.assign(to);
++      // const router = NextNavigation.useRouter();
++      // return (to) => router.push(to);
+     } else {
+       return (to) => {
+       };
+diff --git a/node_modules/@stackframe/stack/dist/lib/stack-app/apps/implementations/client-app-impl.js b/node_modules/@stackframe/stack/dist/lib/stack-app/apps/implementations/client-app-impl.js
+index 77a5b63..2df8211 100644
+--- a/node_modules/@stackframe/stack/dist/lib/stack-app/apps/implementations/client-app-impl.js
++++ b/node_modules/@stackframe/stack/dist/lib/stack-app/apps/implementations/client-app-impl.js
+@@ -1042,8 +1042,9 @@ var __StackClientAppImplIncomplete = class __StackClientAppImplIncomplete {
+     } else if (this._redirectMethod === "window") {
+       return (to) => window.location.assign(to);
+     } else if (this._redirectMethod === "nextjs") {
+-      const router = NextNavigation.useRouter();
+-      return (to) => router.push(to);
++      return (to) => window.location.assign(to);
++      // const router = NextNavigation.useRouter();
++      // return (to) => router.push(to);
+     } else {
+       return (to) => {
+       };
