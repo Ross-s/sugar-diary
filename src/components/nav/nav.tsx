@@ -15,7 +15,9 @@ export function Nav() {
             Sugar Diary
           </Link>
         </div>
-        <div className="flex gap-2">{!user?.isAnonymous && <UserButton showUserInfo={true} />}</div>
+        <div className="flex gap-2">
+          <UserButton showUserInfo={true} />
+        </div>
       </div>
       <div className="divider m-0" />
     </>
