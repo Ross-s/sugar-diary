@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "phase run next dev --turbopack",
-    "build": "next build --turbopack",
+    "postinstall": "patch-package",
+    "dev": "phase run next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "biome:check": "biome check .",
@@ -13,16 +14,22 @@
     "biome:fix": "biome check --write .",
     "db:generate": "phase run drizzle-kit generate",
     "db:migrate": "phase run drizzle-kit migrate",
-    "preview": "phase run next build --turbopack && phase run next start"
+    "preview": "phase run opennextjs-cloudflare build && phase run opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "local:preview": "phase run next build && phase run next start"
   },
   "dependencies": {
     "@libsql/client": "^0.15.10",
+    "@opennextjs/cloudflare": "^1.6.1",
     "@stackframe/stack": "2.8.25",
     "babel-plugin-react-compiler": "^19.1.0-rc.2",
     "daisyui": "^5.0.47",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.3",
-    "next": "15.4.4",
+    "next": "15.3",
+    "patch-package": "^8.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
@@ -38,6 +45,7 @@
     "eslint-config-next": "15.4.4",
     "tailwindcss": "^4",
     "tsx": "^4.20.3",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.26.0"
   }
 }
