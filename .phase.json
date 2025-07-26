@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "phaseApp": "SugarDiary",
+  "appId": "0d03cef8-a8b7-4404-90c1-fe2caa0417f5",
+  "defaultEnv": "Development",
+  "envId": "76426ea6-cc90-4fab-bf56-5ecf6ab87685",
+  "monorepoSupport": false
+}
