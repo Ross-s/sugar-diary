@@ -22,7 +22,7 @@ export function Nav() {
             extraItems={[
               {
                 text: "Settings",
-                icon: <Settings />,
+                icon: <Settings width={28} height={28} />,
                 onClick: () => {
                   console.log("Settings clicked");
                 },
