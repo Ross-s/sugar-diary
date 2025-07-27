@@ -1,0 +1,36 @@
+name: Terraform Deploy
+
+on:
+ push:
+  branches:
+   - main
+
+jobs:
+ terraform:
+  name: Terraform
+  runs-on: ubicloud-standard-4-arm
+
+  steps:
+   - name: Checkout
+     uses: actions/checkout@v4
+
+   - name: Install phase-cli
+     run: curl -fsSL https://pkg.phase.dev/install.sh | sudo bash
+
+   - name: Use Node.js
+     uses: ubicloud/setup-node@v4
+     with:
+       node-version: 24.2.0
+
+   - name: Install Dependencies
+     run: npm ci
+  
+   - name: Build App
+     env:
+      PHASE_SERVICE_TOKEN: ${{ secrets.PHASE_SERVICE_TOKEN }}
+     run: npm run cloudflare:build
+
+   - name: Deploy to Cloudflare
+     env:
+      PHASE_SERVICE_TOKEN: ${{ secrets.PHASE_SERVICE_TOKEN }}
+     run: npm run cloudflare:deploy

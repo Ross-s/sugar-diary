@@ -15,10 +15,10 @@
     "db:generate": "phase run drizzle-kit generate",
     "db:migrate": "phase run drizzle-kit migrate",
     "preview": "phase run opennextjs-cloudflare build && phase run opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
-    "local:preview": "phase run next build && phase run next start"
+    "local:preview": "phase run next build && phase run next start",
+    "cloudflare:build": "phase run --env production opennextjs-cloudflare build",
+    "cloudflare:deploy": "phase run --env production opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@libsql/client": "^0.15.10",
