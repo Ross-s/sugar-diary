@@ -6,6 +6,7 @@
     "postinstall": "patch-package",
     "dev": "phase run next dev",
     "build": "next build",
+    "build:local": "phase run next build",
     "start": "next start",
     "lint": "next lint",
     "biome:check": "biome check .",
