@@ -3,9 +3,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { stackServerApp } from "../stack";
 import "./globals.css";
-import { headers } from "next/headers";
 import Script from "next/script";
-import { ComingSoon } from "@/components/coming-soon";
+import { ComingSoon } from "@/components/coming-soon/coming-soon";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,28 +26,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const allHeaders = await headers();
-
-  if (allHeaders.get("X-Coming-Soon") === "true") {
-    return (
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <ComingSoon />
-          <Script
-            src="https://app.mailjet.com/pas-nc-embedded-v1.js"
-            strategy="beforeInteractive"
-          />
-        </body>
-      </html>
-    );
-  }
-
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <StackProvider app={stackServerApp}>
           <StackTheme>{children}</StackTheme>
         </StackProvider>
+        {process.env.NEXT_PUBLIC_SHOW_COMING_SOON === "true" && (
+          <Script
+            src="https://app.mailjet.com/pas-nc-embedded-v1.js"
+            strategy="beforeInteractive"
+          />
+        )}
       </body>
     </html>
   );

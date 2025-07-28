@@ -1,6 +1,11 @@
 import Image from "next/image";
+import { ComingSoon } from "@/components/coming-soon/coming-soon";
 
 export default function Home() {
+  if (process.env.NEXT_PUBLIC_SHOW_COMING_SOON === "true") {
+    return <ComingSoon />;
+  }
+
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
