@@ -1,4 +1,5 @@
 import { drizzle } from "drizzle-orm/libsql";
+import * as schema from "./schema";
 export const db = drizzle({
   connection: {
     url:
@@ -12,5 +13,5 @@ export const db = drizzle({
         throw new Error("TURSO_AUTH_TOKEN is required");
       })(),
   },
-  schema: {},
+  schema: schema,
 });

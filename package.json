@@ -14,6 +14,7 @@
     "biome:fix": "biome check --write .",
     "db:generate": "phase run drizzle-kit generate",
     "db:migrate": "phase run drizzle-kit migrate",
+    "db:migrate:prod": "phase run --env production drizzle-kit migrate",
     "preview": "phase run opennextjs-cloudflare build && phase run opennextjs-cloudflare preview",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "local:preview": "phase run next build && phase run next start",

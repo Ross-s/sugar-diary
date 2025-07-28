@@ -30,6 +30,11 @@ jobs:
       PHASE_SERVICE_TOKEN: ${{ secrets.PHASE_SERVICE_TOKEN }}
      run: npm run cloudflare:build
 
+   - name: Migrate Database
+     env:
+       PHASE_SERVICE_TOKEN: ${{ secrets.PHASE_SERVICE_TOKEN }}
+     run: npm run db:migrate
+
    - name: Deploy to Cloudflare
      env:
       PHASE_SERVICE_TOKEN: ${{ secrets.PHASE_SERVICE_TOKEN }}

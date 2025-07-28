@@ -1,1 +1,1 @@
-export * from "./userTable";
+export * from "./connectionDetailsTable";
